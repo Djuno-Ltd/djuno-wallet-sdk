@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
+// Configuration options for the client
 type ClientConfigs = {
   endpointUrl?: string;
   accessKey?: string;
@@ -7,34 +8,38 @@ type ClientConfigs = {
   headers?: Record<string, string>;
 };
 
+// General response structure
 interface GeneralResult<T> {
   status: boolean;
   message: string;
   data: null | T;
 }
 
+// Network type definition
 type Network = {
   Id: number;
   NetworkName: string;
   NetworkCode: string;
 };
 
+// Wallet type definition
 type Wallet = {
   Id: string;
   Network: string;
-  Status: 'Active';
+  Status: string;
   Name: string;
   Address: string;
   PrivateKey: string | null;
   Seed: string | null;
   DateCreated: string;
   SigningKey: {
-    Curve: string; //'secp256k1'
-    Scheme: string; //'ECDSA'
+    Curve: string;
+    Scheme: string;
     PublicKey: string;
   };
 };
 
+// Payload for creating a wallet
 type CreateWalletBody = {
   NetworkId: number;
   Name: string;
@@ -42,6 +47,7 @@ type CreateWalletBody = {
   Tags?: string[];
 };
 
+// Payload for updating a wallet
 type UpdateWalletBody = {
   Name: string;
   UserId: string;
@@ -75,6 +81,7 @@ class Client {
     });
   }
 
+  // Handles API errors
   private handleError(error: unknown) {
     if (axios.isAxiosError(error)) {
       return {
@@ -90,10 +97,12 @@ class Client {
     };
   }
 
+  // Updates the access key for the client
   setAccessKey(newAccessKey: string) {
     this.httpClient.defaults.headers['x-api-key'] = newAccessKey;
   }
 
+  // Fetches the list of available networks
   networks = async (): Promise<GeneralResult<Network[]>> => {
     try {
       const response = await this.httpClient.get(this.basePath + '/networks');
@@ -107,6 +116,7 @@ class Client {
     }
   };
 
+  // Creates a new wallet
   createWallet = async (
     data: CreateWalletBody
   ): Promise<GeneralResult<Wallet>> => {
@@ -126,6 +136,7 @@ class Client {
     }
   };
 
+  // Updates an existing wallet
   updateWallet = async (
     id: string,
     data: UpdateWalletBody
@@ -146,6 +157,7 @@ class Client {
     }
   };
 
+  // Retrieves details of a specific wallet
   getWallet = async (id: string): Promise<GeneralResult<Wallet>> => {
     try {
       const response = await this.httpClient.get(
@@ -154,6 +166,22 @@ class Client {
 
       return {
         data: response.data.Result,
+        status: true,
+        message: response.data.Message,
+      };
+    } catch (error) {
+      return this.handleError(error);
+    }
+  };
+
+  // Deletes a wallet by ID
+  deleteWallet = async (id: string): Promise<GeneralResult<null>> => {
+    try {
+      const response = await this.httpClient.delete(
+        this.basePath + '/wallets/' + id
+      );
+      return {
+        data: null,
         status: true,
         message: response.data.Message,
       };

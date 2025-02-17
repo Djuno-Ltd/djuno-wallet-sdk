@@ -1,9 +1,16 @@
 {
   "name": "@djuno/source",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {},
-  "private": true,
+  "private": false,
+  "description": "A monorepo containing Djuno's Wallet SDK and React Hook for managing Web3 wallets",
+  "keywords": [
+    "djuno",
+    "wallet",
+    "sdk"
+  ],
+  "author": "Djuno Ltd (Ansar Mirzayi) <ansar@djuno.io>",
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@nx/eslint": "20.4.4",

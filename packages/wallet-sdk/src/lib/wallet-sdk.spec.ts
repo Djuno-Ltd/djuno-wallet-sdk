@@ -45,10 +45,8 @@ describe('Wallet SDK', () => {
     // Ensure walletId is set before attempting to update
     expect(walletId).toBeDefined();
 
-    console.log({ walletId });
-
     const result = await client.updateWallet(walletId as string, updateBody);
-    console.log({ result });
+
     expect(result.status).toBe(true);
     expect(result.message).toBe('SUCCESS');
   });
@@ -58,6 +56,15 @@ describe('Wallet SDK', () => {
     expect(walletId).toBeDefined();
 
     const result = await client.getWallet(walletId as string);
+
+    expect(result.status).toBe(true);
+    expect(result.message).toBe('SUCCESS');
+  });
+
+  it('should delete a wallet', async () => {
+    expect(walletId).toBeDefined();
+
+    const result = await client.deleteWallet(walletId as string);
 
     expect(result.status).toBe(true);
     expect(result.message).toBe('SUCCESS');
