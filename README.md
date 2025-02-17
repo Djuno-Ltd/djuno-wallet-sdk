@@ -4,8 +4,8 @@
 
 ## Packages
 
-- [Wallet SDK](./packages/wallet-sdk/README.md): A TypeScript SDK that provides an easy-to-use interface for interacting with Djuno's wallet API. It supports wallet creation, retrieval, and management, along with secure authentication via API keys.
-- [Wallet Hook](./packages/wallet-hook/README.md): A React hook that simplifies wallet interactions within React applications by providing easy-to-use state management and API calls.
+- [Wallet SDK](https://github.com/Djuno-Ltd/djuno-wallet-sdk/tree/main/packages/wallet-sdk/README.md): A TypeScript SDK that provides an easy-to-use interface for interacting with Djuno's wallet API. It supports wallet creation, retrieval, and management, along with secure authentication via API keys.
+- [Wallet Hook](https://github.com/Djuno-Ltd/djuno-wallet-sdk/tree/main/packages/wallet-hook/README.md): A React hook that simplifies wallet interactions within React applications by providing easy-to-use state management and API calls.
 
 ## Features
 

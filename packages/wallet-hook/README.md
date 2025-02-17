@@ -1,6 +1,6 @@
 # Djuno Wallet SDK React Provider
 
-A React Context provider for the [Djuno Wallet SDK](./../wallet-sdk/README.md), designed to simplify wallet management and API interaction in React applications. This provider allows you to easily access wallet data, create, update, delete wallets, and interact with supported blockchain networks.
+A React Context provider for the [Djuno Wallet SDK](https://github.com/Djuno-Ltd/djuno-wallet-sdk/tree/main/packages/wallet-sdk/README.md), designed to simplify wallet management and API interaction in React applications. This provider allows you to easily access wallet data, create, update, delete wallets, and interact with supported blockchain networks.
 
 ## Features
 
