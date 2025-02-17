@@ -27,13 +27,13 @@ yarn add @djuno/wallet-sdk
 Next, install the React provider in your project:
 
 ```sh
-npm install @djuno/wallet-provider
+npm install @djuno/wallet-hook
 ```
 
 or
 
 ```sh
-yarn add @djuno/wallet-provider
+yarn add @djuno/wallet-hook
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ In your app entry point, wrap your application with the `WalletProvider` to make
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { WalletProvider } from '@djuno/wallet-provider';
+import { WalletProvider } from '@djuno/wallet-hook';
 
 const clientConfigs = {
   endpointUrl: 'https://wallets.djuno.cloud',
@@ -71,7 +71,7 @@ To access wallet-related data and methods in your components, use the `useWallet
 
 ```tsx
 import React, { useEffect } from 'react';
-import { useWallet } from '@djuno/wallet-provider';
+import { useWallet } from '@djuno/wallet-hook';
 
 const NetworkList: React.FC = () => {
   const { getNetworks, networks, loading } = useWallet();
@@ -103,7 +103,7 @@ export default NetworkList;
 
 ```tsx
 import React, { useState } from 'react';
-import { useWallet } from '@djuno/wallet-provider';
+import { useWallet } from '@djuno/wallet-hook';
 
 const CreateWalletForm: React.FC = () => {
   const { createWallet, loading } = useWallet();
@@ -172,7 +172,7 @@ If an operation fails, the respective method will log the error in the console a
 
 ```tsx
 import React, { useState } from 'react';
-import { useWallet } from '@djuno/wallet-provider';
+import { useWallet } from '@djuno/wallet-hook';
 
 const UpdateWalletForm: React.FC = () => {
   const { updateWallet, loading } = useWallet();
