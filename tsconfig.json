@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./packages/wallet-sdk"
+    },
+    {
+      "path": "./packages/wallet-hook"
     }
   ]
 }
